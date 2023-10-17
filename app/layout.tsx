@@ -1,8 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Nunito } from "next/font/google";
+import { Nunito } from "next/font/google";
+import Navbar from "./components/navbar/Navbar";
+import RegisterModal from "./components/modals/RegisterModal";
 
-const inter = Inter({ subsets: ["latin"] });
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,7 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>{children}</body>
+      <body className={nunito.className}>
+        <RegisterModal />
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
